@@ -1,0 +1,10 @@
+<div class="article">
+		<h2><%= article.title %></h2>
+		<div class="body">
+			<%= article.body %>
+		</div>
+		<div class="date">Posted: <%= article.created_at %></div>
+		<% if article.created_at != article.updated_at %>
+		<div class="date">Updated: <%= article.updated_at %></div>
+		<% end %>
+</div>

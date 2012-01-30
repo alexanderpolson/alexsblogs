@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>Blog</title>
+	  <%= stylesheet_link_tag    "application" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div id="site">
+			<div id="header">
+			</div>
+			<h1 id="title">Alex Polson's Personal Blog</h1>
+			<% if(flash[:error]) %>
+			<div id="error">
+				<%= flash[:error] %>
+			</div>
+			<% end %>
+			<% if(flash[:notice]) %>
+			<div id="error">
+				<%= flash[:notice] %>
+			</div>
+			<% end %>
+			
+			<%= yield %>
+			
+			<div id="footer">
+				<% # This should be moved to the application controller/partial %>
+				<%= link_to 'Home', blog_path %> |
+				<% if(session[:user_id]) %>
+				<%= link_to 'Articles', articles_path %> |
+				<%= link_to 'Users', users_path %> |
+				<%= link_to 'Log out', '/logout', method: :post %>
+				<% else %>
+				<%= link_to 'Log in', '/login' %>
+				<% end%>
+			</div>
+			
+		</div>
+		
+
+	</body>
+</html>

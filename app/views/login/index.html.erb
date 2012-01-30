@@ -1,0 +1,13 @@
+<h2>Login</h2>
+<% if(!@logged_in) %>
+	<%= form_for :login do |f| %>
+	<%= f.label :email_address %>
+	<%= f.text_field :email_address %><br />
+
+	<%= f.label :password %>
+	<%= f.password_field :password %><br />
+	<%= submit_tag 'Login' %>
+	<% end %>
+<% else %>
+	You are logged in.
+<% end %>
