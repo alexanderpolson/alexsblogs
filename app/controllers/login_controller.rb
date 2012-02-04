@@ -7,14 +7,14 @@ class LoginController < ApplicationController
   # TODO: Figure out how to update routes such that this can be renamed to index.
   def create
     login = Login.new(params[:login])
-    user = User.find_by_email_address(login.email_address)
-    logger.debug("'got here' #{user}")
+    author = Author.find_by_email_address(login.email_address)
+    logger.debug("'got here' #{author}")
     
-    # Verify the user exists and the password is correct.
-    if(user && login.password == user.password)
+    # Verify the author exists and the password is correct.
+    if(author && login.password == author.password)
       # Setup the session
-      session[:user_id] = user.id
-      logger.debug("User id: #{user.id}")
+      session[:author_id] = author.id
+      logger.debug("Author id: #{author.id}")
       redirect_to(:back)
     else
       redirect_with_login_error
@@ -22,7 +22,7 @@ class LoginController < ApplicationController
   end
   
   def destroy
-    session[:user_id] = nil
+    session[:author_id] = nil
     flash[:notice] = 'You are now logged out.'
     redirect_to blog_path
   end

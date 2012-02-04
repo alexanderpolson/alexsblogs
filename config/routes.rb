@@ -4,7 +4,7 @@ Blog::Application.routes.draw do
   
   match 'logout' => 'login#destroy'
   
-  resources :users
+  resources :authors
 
   resources :articles
 
