@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   
-  #before_filter :require_login
+  before_filter :require_login
   
   # GET /articles
   # GET /articles.json
