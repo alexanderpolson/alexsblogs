@@ -1,9 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  def current_author_id
+    session[:author_id]
+  end
+  
   def logged_in?
     # TODO: This obviously needs to be made more robust
-    session[:author_id]
+    current_author_id
   end
   
   def require_login
