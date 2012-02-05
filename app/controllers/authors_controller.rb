@@ -61,6 +61,12 @@ class AuthorsController < ApplicationController
   def update
     @author = Author.find(params[:id])
 
+    # If a new password wasn't specified then just use the old one. Since
+    # a password field is used the edit form starts blank so we don't want
+    # to delete the existing password.
+    new_password = params[:author][:password]
+    params[:author][:password] = @author.password if new_password.empty?
+
     respond_to do |format|
       if @author.update_attributes(params[:author])
         format.html { redirect_to @author, notice: 'author was successfully updated.' }
