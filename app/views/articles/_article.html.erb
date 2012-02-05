@@ -2,7 +2,11 @@
 		<h2><%= article.title %></h2>
 		<div class="author">by <%= article.author.full_name %></div>
 		<div class="body">
-			<%= article.body %>
+			<% article.body.split(/\n/).each do |line| %>
+			<p>
+				<%= line %>
+			</p>
+			<% end %>
 		</div>
 		<div class="date">Posted: <%= article.created_at %></div>
 		<% if article.created_at != article.updated_at %>
