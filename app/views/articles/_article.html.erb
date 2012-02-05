@@ -1,6 +1,12 @@
 <div class="article">
-		<h2><%= article.title %></h2>
+		<h2><%= link_to article.title, article %></h2>
 		<div class="author">by <%= article.author.full_name %></div>
+		<% if(session[:author_id]) %>
+		<div class="article-admin">
+		    <%= link_to 'Edit', edit_article_path(article) %> |
+		    <%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %>
+		</div>
+		<% end %>
 		<div class="body">
 			<% article.body.split(/\n/).each do |line| %>
 			<p>

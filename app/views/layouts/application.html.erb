@@ -26,9 +26,9 @@
 			
 			<div id="footer">
 				<% # This should be moved to the application controller/partial %>
-				<%= link_to 'Home', blog_path %> |
+				<%= link_to 'Home', articles_path %> |
 				<% if(session[:author_id]) %>
-				<%= link_to 'Articles', articles_path %> |
+				<%= link_to 'New Article', new_article_path %> |
 				<%= link_to 'Authors', authors_path %> |
 				<%= link_to 'Log out', '/logout', method: :post %>
 				<% else %>

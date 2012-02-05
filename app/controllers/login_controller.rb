@@ -24,7 +24,7 @@ class LoginController < ApplicationController
   def destroy
     session[:author_id] = nil
     flash[:notice] = 'You are now logged out.'
-    redirect_to blog_path
+    redirect_to articles_path
   end
   
   private
