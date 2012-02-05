@@ -4,6 +4,10 @@ class Author < ActiveRecord::Base
   
   has_many :articles
   
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+  
   def to_s
     "Author<email_address=\"#{self.email_address}\">"
   end
