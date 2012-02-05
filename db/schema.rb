@@ -27,11 +27,4 @@ ActiveRecord::Schema.define(:version => 20120204181212) do
     t.datetime "updated_at"
   end
 
-  create_table "logins", :force => true do |t|
-    t.string   "user_name"
-    t.string   "password"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
 end
