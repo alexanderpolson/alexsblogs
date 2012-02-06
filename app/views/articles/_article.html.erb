@@ -1,10 +1,13 @@
 <div class="article">
 		<h2><%= link_to article.title, article %></h2>
-		<div class="author">by <%= article.author.full_name %></div>
+		<div class="author">
+			Posted: <%= article.created_at.to_date.inspect %>
+			by <%= article.author.full_name %>
+		</div>
 		<% if(session[:author_id]) %>
 		<div class="article-admin">
 		    <%= link_to 'Edit', edit_article_path(article) %> |
-		    <%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %>
+		    <%= link_to 'Delete', article, confirm: 'Are you sure?', method: :delete %>
 		</div>
 		<% end %>
 		<div class="body">
@@ -14,7 +17,12 @@
 			</p>
 			<% end %>
 		</div>
-		<div class="date">Posted: <%= article.created_at %></div>
+		<div class="tags">
+			Tagged:
+			<% article.tags.each do |tag| %>
+			<%= render tag %>
+			<% end %>
+		</div>
 		<% if article.created_at != article.updated_at %>
 		<div class="date">Updated: <%= article.updated_at %></div>
 		<% end %>
