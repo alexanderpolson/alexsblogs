@@ -1,6 +1,7 @@
 class AuthorsController < ApplicationController
   
   before_filter :require_login
+  skip_before_filter :require_login, only: [:show]
   
   # GET /authors
   # GET /authors.json

@@ -1,25 +1,5 @@
-<p id="notice"><%= notice %></p>
+<h2>Articles posted by <%= @author.full_name %></h2>
 
-<p>
-	<strong>First Name:</strong>
-	<%= @author.first_name %>
-</p>
-
-<p>
-	<strong>Last Name:</strong>
-	<%= @author.last_name %>
-</p>
-
-<p>
-  <b>Email address:</b>
-  <%= @author.email_address %>
-</p>
-
-<p>
-  <b>Password:</b>
-  ****************** (hidden)
-</p>
-
-
-<%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', authors_path %>
+<% @author.articles.each do |article| %>
+<%= render article %>
+<% end %>
