@@ -1,5 +1,5 @@
-<p id="notice"><%= notice %></p>
+<h2>Articles tagged with <%= @tag.name %></h2>
 
-
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
+<% @tag.articles.each do |article| %>
+<%= render article %>
+<% end %>
