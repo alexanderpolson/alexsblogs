@@ -1,0 +1,5 @@
+Add ability to post article to multiple blogs
+Optionally make posts private (only viewable by owner)
+Save posts as draft
+Add RSS feed
+Paginate articles
