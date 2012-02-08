@@ -1,4 +1,4 @@
-Blog::Application.routes.draw do
+Blogs::Application.routes.draw do
   resources :tags
 
   # TODO: Figure out routes so all we need is the single, index route.
