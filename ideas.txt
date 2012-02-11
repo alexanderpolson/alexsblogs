@@ -1,4 +1,9 @@
 Add ability to post article to multiple blogs
+* What happens when no blogs have been created?
+** Redirect users to blog/new when trying to create articles
+** Setup wizard?
+*** Create an author
+*** Create a blog
 Optionally make posts private (only viewable by owner)
 Save posts as draft
 Add RSS feed
