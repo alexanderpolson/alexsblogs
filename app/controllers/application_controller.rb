@@ -59,7 +59,6 @@ class ApplicationController < ActionController::Base
     # TODO: Come up with a configurable way to do this
     # For now just get the first blog
     Blog.first || Blog.new
-    Blog.find(2)
   end
   
 end
