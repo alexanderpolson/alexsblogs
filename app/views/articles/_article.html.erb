@@ -4,7 +4,7 @@
 		Posted: <%= article.created_at.to_date.inspect %>
 		by <%= link_to article.author.full_name, article.author %>
 	</div>
-	<% if(session[:author_id]) %>
+	<% if(session[:author_id] == article.author_id) %>
 	<div class="article-admin">
 	    <%= link_to 'Edit', edit_article_path(article) %> |
 	    <%= link_to 'Delete', article, confirm: 'Are you sure?', method: :delete %>

@@ -30,7 +30,11 @@
 	    <%= f.label :blogs, blog.title %>
 	  <% end %>
   </div>
-	 
+
+  <div class="field">
+    <%= f.check_box :is_draft %>
+    <%= f.label :is_draft %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

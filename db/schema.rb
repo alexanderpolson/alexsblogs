@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120211195929) do
+ActiveRecord::Schema.define(:version => 20120213173015) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20120211195929) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "author_id"
+    t.boolean  "is_draft"
   end
 
   create_table "articles_tags", :force => true do |t|
