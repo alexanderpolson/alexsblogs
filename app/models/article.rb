@@ -1,13 +1,14 @@
 class Article < ActiveRecord::Base
   belongs_to :author
   has_and_belongs_to_many :tags
+  has_many :blog_articles
+  has_many :blogs, through: :blog_articles
   
   def formatted_tags
     self.tags.join(', ')
   end
   
   def formatted_tags=(tags_string)
-    puts("\n\n\nGot here!!!!\n#{tags_string}\n\n")
     # First split by the delimiter
     tags = tags_string.split(',')
     
@@ -28,5 +29,9 @@ class Article < ActiveRecord::Base
       
       self.tags << tag
     end
+  end
+  
+  def posted_to(blog)
+    blog.id
   end
 end

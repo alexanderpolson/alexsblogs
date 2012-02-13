@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  before_filter :setup
+  
   def current_author_id
     session[:author_id]
   end
@@ -19,6 +21,45 @@ class ApplicationController < ActionController::Base
       # TODO: Figure out routes so I can just do login_path instead
       redirect_to '/login'
     end
+  end
+  
+  def active_blog
+    @active_blog
+  end
+  
+  private
+  #
+  # Populate member variables that should populated for all controllers/actions
+  #
+  def setup
+    @active_blog = determine_active_blog
+  end
+  
+  def determine_active_blog
+    # Find the part of the URL between '://' and the next '/'.
+    # http://alexpolson.com/ => alexpolson.com
+    active_blog = nil
+    Blog.all.each do |blog|
+      pattern = Regexp.new(blog.url_pattern)
+      if(pattern.match(request.host))
+        active_blog = blog
+        break
+      end
+    end
+    
+    # Use the default blog
+    if(!active_blog)
+      active_blog = default_blog
+    end
+    
+    active_blog
+  end
+  
+  def default_blog
+    # TODO: Come up with a configurable way to do this
+    # For now just get the first blog
+    Blog.first || Blog.new
+    Blog.find(2)
   end
   
 end

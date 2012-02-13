@@ -23,6 +23,13 @@
     <%= f.label :formatted_tags, 'Tags (separated by commas)' %>
     <%= f.text_field :formatted_tags %>
   </div>
+  
+  <div class="field">
+	  <% @blogs.each do |blog| %>
+	    <%= check_box_tag 'article[blog_ids][]', blog.id, @article.blog_ids.include?(blog.id) %>
+	    <%= f.label :blogs, blog.title %>
+	  <% end %>
+  </div>
 	 
   <div class="actions">
     <%= f.submit %>

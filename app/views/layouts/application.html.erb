@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	  <title>Blog</title>
+	  <title><%= @active_blog.title %></title>
 	  <%= stylesheet_link_tag    "application" %>
 	  <%= javascript_include_tag "application" %>
 	  <%= csrf_meta_tags %>
@@ -10,14 +10,14 @@
 		<div id="site">
 			<div id="header">
 			</div>
-			<h1 id="title">Alex Polson's Personal Blog</h1>
+			<h1 id="title"><%= @active_blog.title %></h1>
 			<% if(flash[:error]) %>
 			<div id="error">
 				<%= flash[:error] %>
 			</div>
 			<% end %>
 			<% if(flash[:notice]) %>
-			<div id="error">
+			<div id="notice">
 				<%= flash[:notice] %>
 			</div>
 			<% end %>
@@ -28,6 +28,7 @@
 				<% # This should be moved to the application controller/partial %>
 				<%= link_to 'Home', articles_path %> |
 				<% if(session[:author_id]) %>
+				<%= link_to 'Blogs Admin', blogs_path %> |
 				<%= link_to 'New Article', new_article_path %> |
 				<%= link_to 'Authors', authors_path %> |
 				<%= link_to 'Log out', '/logout', method: :post %>

@@ -1,4 +1,6 @@
 Blogs::Application.routes.draw do
+  resources :blogs
+
   resources :tags
 
   # TODO: Figure out routes so all we need is the single, index route.
@@ -60,7 +62,7 @@ Blogs::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
-  root to: 'articles#index', as: 'articles',
+  root to: 'articles#index' #, as: 'articles',
 
   # See how all your routes lay out with "rake routes"
 

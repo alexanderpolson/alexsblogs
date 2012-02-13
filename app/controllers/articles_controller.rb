@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = active_blog.articles
 
     respond_to do |format|
       format.html # index.html.erb
@@ -29,6 +29,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new.json
   def new
     @article = Article.new
+    @blogs = Blog.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,6 +40,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
+    @blogs = Blog.all
   end
 
   # POST /articles
