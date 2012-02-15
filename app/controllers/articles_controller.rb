@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = active_blog.finalized_articles
+    @articles = active_blog.finalized_articles(current_author_id)
 
     respond_to do |format|
       format.html # index.html.erb
