@@ -42,6 +42,7 @@ class ApplicationController < ActionController::Base
     Blog.all.each do |blog|
       pattern = Regexp.new(blog.url_pattern)
       if(pattern.match(request.host))
+        logger.info("#{request.host} matches pattern for #{blog.title} (#{blog.url_pattern})")
         active_blog = blog
         break
       end
@@ -49,6 +50,7 @@ class ApplicationController < ActionController::Base
     
     # Use the default blog
     if(!active_blog)
+      logger.info("#{request.host} doesn't match any blog url patterns. Using the default blog.")
       active_blog = default_blog
     end
     
