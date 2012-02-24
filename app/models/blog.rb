@@ -6,4 +6,8 @@ class Blog < ActiveRecord::Base
     self.articles.where('is_draft = false')
   end
   
+  def to_s
+    self.title
+  end
+  
 end
