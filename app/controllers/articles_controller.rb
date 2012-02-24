@@ -77,7 +77,7 @@ class ArticlesController < ApplicationController
         end
         article.is_draft = true
         article.author = author
-        article.blogs << Blog.first
+        article.blogs << Blog.find(2)
         article.save
         item.elements.each('wp:post_date') do |post_date|
           article.created_at = Time.parse(post_date.text)
