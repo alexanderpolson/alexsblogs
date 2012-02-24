@@ -41,6 +41,7 @@ class ApplicationController < ActionController::Base
     active_blog = nil
     Blog.all.each do |blog|
       pattern = Regexp.new(blog.url_pattern)
+      logger.info("Attempting to match #{request.host} with blog pattern for #{blog.title} (#{blog.url_pattern}).")
       if(pattern.match(request.host))
         logger.info("#{request.host} matches pattern for #{blog.title} (#{blog.url_pattern})")
         active_blog = blog
