@@ -15,7 +15,7 @@
 	<div class="body">
 		<% article.body.split(/\n/).each do |line| %>
 		<p>
-			<%= sanitize(line, tags: %w(a img)) %>
+			<%= sanitize(line, tags: %w(a img ul li)) %>
 		</p>
 		<% end %>
 	</div>
