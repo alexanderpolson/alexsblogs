@@ -34,4 +34,8 @@ class Article < ActiveRecord::Base
   def posted_to(blog)
     blog.id
   end
+  
+  def to_s
+    puts("Article<title=#{self.title}, tags=#{self.tags}, body=#{body}>")
+  end
 end

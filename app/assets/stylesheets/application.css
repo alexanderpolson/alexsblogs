@@ -6,7 +6,11 @@
  *= require_tree . 
 */
 div#site {
+	background-color: #6caab5;
 	border: 2px solid #c0c0c0;
+	border-top-right-radius: 100px 50px;
+	border-bottom-left-radius: 20px 18px;
+	border-bottom-right-radius: 20px 18px;
 
 	width: 600px;
 	margin: 0 auto;
@@ -17,7 +21,18 @@ body {
 }
 
 div#header {
-	text-align:right;
+	background-color: #c3c7c8;
+	border-bottom: 1px solid #000000;
+	border-top: 1px solid #000000;
+	bottom: 0px;
+	display: block;
+	margin-bottom: 1em;
+	padding: 1px;
+}
+
+span#login {
+	position: relative	;
+	float: right;
 }
 
 div#notice {
@@ -31,19 +46,19 @@ div#error {
 }
 
 h1#title {
-	background-color: #00ee00;
+	border: radius 15px;
 	margin: 0;
 	padding: 10px;
 	text-decoration: underline;
 }
 
 div#footer {
-	border-top: 1px solid #000000;
-	/*position: absolute;*/
-	margin-top: 1em;
 	background-color: #c0c0c0;
-	display:block; 
-	/*width: 600px;/*width of page*/ 
-	bottom: 0px;
+	border-bottom: 1px solid #000000;
+	border-top: 1px solid #000000;
+	display: block;
+	font-size: smaller;
+	margin-bottom: 10px;
+	margin-top: 1em;
 	text-align: right;
 }

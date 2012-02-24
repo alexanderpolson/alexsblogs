@@ -1,3 +1,23 @@
+<h1>Listing articles</h1>
+
+<table style="background-color: #ffffff">
+  <tr>
+    <th>Title</th>
+    <th>Draft?</th>
+    <th></th>
+    <th></th>
+  </tr>
+
 <% @articles.each do |article| %>
-<%= render article %>
+  <tr>
+    <td><%= link_to article.title, edit_article_path(article) %></td>
+    <td><%= article.is_draft %></td>
+    <td><%= link_to 'Show', article %></td>
+    <td><%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
 <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Article', new_article_path %>

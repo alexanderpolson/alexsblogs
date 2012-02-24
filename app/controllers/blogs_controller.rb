@@ -1,4 +1,8 @@
 class BlogsController < ApplicationController
+  before_filter :require_login
+  skip_before_filter :require_login, only: [:show]
+  
+  
   # GET /blogs
   # GET /blogs.json
   def index
@@ -13,7 +17,12 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @blog = Blog.find(params[:id])
+    @blog = nil
+    if(params[:id])
+      @blog = Blog.find(params[:id])
+    else
+      @blog = active_blog
+    end
 
     respond_to do |format|
       format.html # show.html.erb

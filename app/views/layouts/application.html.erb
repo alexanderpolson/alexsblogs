@@ -8,9 +8,22 @@
 	</head>
 	<body>
 		<div id="site">
+			<h1 id="title"><%= link_to @active_blog.title, @active_blog %></h1>
 			<div id="header">
+				<% # This should be moved to the application controller/partial %>
+				<%= link_to 'Home', '/' %> |
+				<% if(session[:author_id]) %>
+				<%= link_to 'Blogs Admin', blogs_path %> |
+				<%= link_to 'New Article', new_article_path %> |
+				<%= link_to 'Authors', authors_path %>
+				<span id="login">
+					<%= link_to 'Log out', '/logout', method: :post %>
+					<% else %>
+					<%= link_to 'Log in', '/login' %>
+					<% end%>
+				</span>
 			</div>
-			<h1 id="title"><%= @active_blog.title %></h1>
+			
 			<% if(flash[:error]) %>
 			<div id="error">
 				<%= flash[:error] %>
@@ -25,16 +38,7 @@
 			<%= yield %>
 			
 			<div id="footer">
-				<% # This should be moved to the application controller/partial %>
-				<%= link_to 'Home', articles_path %> |
-				<% if(session[:author_id]) %>
-				<%= link_to 'Blogs Admin', blogs_path %> |
-				<%= link_to 'New Article', new_article_path %> |
-				<%= link_to 'Authors', authors_path %> |
-				<%= link_to 'Log out', '/logout', method: :post %>
-				<% else %>
-				<%= link_to 'Log in', '/login' %>
-				<% end%>
+				Copyright &copy; 2004-2012 Alex Polson
 			</div>
 			
 		</div>

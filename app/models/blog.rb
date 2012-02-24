@@ -1,6 +1,6 @@
 class Blog < ActiveRecord::Base
   has_many :blog_articles
-  has_many :articles, through: :blog_articles
+  has_many :articles, through: :blog_articles, order: 'created_at DESC'
   
   def finalized_articles(current_author_id)
     # TODO: Adjust this such that the logged in author can see their draft posts too.
