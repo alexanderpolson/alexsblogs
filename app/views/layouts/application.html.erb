@@ -9,6 +9,9 @@
 	<body>
 		<div id="site">
 			<h1 id="title"><%= link_to @active_blog.title, @active_blog %></h1>
+			<div id="description">
+				<%= @active_blog.description %>
+			</div>
 			<div id="header">
 				<% # This should be moved to the application controller/partial %>
 				<%= link_to 'Home', '/' %> |
