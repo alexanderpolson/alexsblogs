@@ -5,6 +5,7 @@
 	  <%= stylesheet_link_tag    "application" %>
 	  <%= javascript_include_tag "application" %>
 	  <%= csrf_meta_tags %>
+	  <%= auto_discovery_link_tag(:rss, @active_blog.rss_link) %>
 	</head>
 	<body>
 		<div id="site">
@@ -41,7 +42,7 @@
 			<%= yield %>
 			
 			<div id="footer">
-				Copyright &copy; 2004-2012 Alex Polson
+				Copyright &copy; 2004-2012 Alex Polson <span id="rss"><%= link_to(image_tag('rss.png'), @active_blog.rss_link) %></span>
 			</div>
 			
 		</div>

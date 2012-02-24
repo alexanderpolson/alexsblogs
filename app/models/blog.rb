@@ -6,6 +6,12 @@ class Blog < ActiveRecord::Base
     self.articles.where('is_draft = false')
   end
   
+  def rss_link
+    # TODO: This should be updated to use something like blogs_path(...)
+    # I was unable to find documented options.
+    "/blogs/#{self.id}.rss"
+  end
+  
   def to_s
     self.title
   end

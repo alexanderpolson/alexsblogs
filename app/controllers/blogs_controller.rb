@@ -27,6 +27,7 @@ class BlogsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @blog }
+      format.rss { render :layout => false } #index.rss.builder
     end
   end
 

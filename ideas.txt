@@ -5,6 +5,7 @@ Add ability to post article to multiple blogs
 *** Create an author
 *** Create a blog
 Optionally make posts private (only viewable by owner)
-Save posts as draft
-Add RSS feed
+Fix formatting of code tags
+* Change typeface to be more code-like
+* Remove extraneous paragraph tags.
 Paginate articles

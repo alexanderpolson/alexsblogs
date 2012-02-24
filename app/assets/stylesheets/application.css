@@ -61,11 +61,20 @@ div#description {
 
 div#footer {
 	background-color: #c0c0c0;
+	/*background-repeat: no-repeat;
+	background-position: 95% 50%;
+	background-image: url("/assets/rss.png");*/
 	border-bottom: 1px solid #000000;
 	border-top: 1px solid #000000;
 	display: block;
 	font-size: smaller;
 	margin-bottom: 10px;
 	margin-top: 1em;
-	text-align: right;
+	padding-right: 1em;
+	position: relative;
+	text-align: center;
+}
+
+span#rss {
+	float: right;
 }
