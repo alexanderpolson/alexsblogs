@@ -14,9 +14,7 @@
 	</div>
 	<div class="body">
 		<% article.body.split(/\n/).each do |line| %>
-		<p>
-			<%= sanitize(line, tags: %w(a img ul li h3 h4 h5 h6 code)) %>
-		</p>
+		<%= sanitize(format_article_line(line.chomp),tags: %w(p a img ul li h3 h4 h5 h6 code)) %>
 		<% end %>
 	</div>
 	<div class="tags">
