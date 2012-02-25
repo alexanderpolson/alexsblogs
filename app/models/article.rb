@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
+  include WikiCloth
+  
   belongs_to :author
   has_and_belongs_to_many :tags
   has_many :blog_articles
@@ -6,6 +8,10 @@ class Article < ActiveRecord::Base
   
   def formatted_tags
     self.tags.join(', ')
+  end
+  
+  def formatted_body
+    WikiCloth.new(data: self.body).to_html(noedit: true)
   end
   
   def formatted_tags=(tags_string)
@@ -18,7 +24,6 @@ class Article < ActiveRecord::Base
     
     # Add the tags back
     tags.each do |tag_s|
-      
       # Make sure the tag has an entry in the database
       tag = Tag.find_by_name(Tag.sanitize(tag_s))
       if(!tag)

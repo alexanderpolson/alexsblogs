@@ -16,6 +16,7 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1
   # GET /blogs/1.json
+  # GEt /blogs/1.rss
   def show
     @blog = nil
     if(params[:id])
@@ -27,7 +28,7 @@ class BlogsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @blog }
-      format.rss { render :layout => false } #index.rss.builder
+      format.rss { render :layout => false }
     end
   end
 

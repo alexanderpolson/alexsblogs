@@ -7,7 +7,7 @@ gem 'rails', '3.1.3'
 
 gem 'pg'
 gem 'thin'
-gem 'maruku', '0.6.0'
+gem 'wikicloth'
 
 
 # Gems used only for assets and not required
