@@ -11,7 +11,7 @@ class Article < ActiveRecord::Base
   end
   
   def formatted_body
-    WikiCloth.new(data: self.body).to_html(noedit: true)
+    WikiCloth.new(data: "__NOTOC__\n#{self.body}").to_html(noedit: true)
   end
   
   def formatted_tags=(tags_string)

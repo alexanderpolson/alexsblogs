@@ -8,7 +8,7 @@ xml.rss :version => "2.0" do
     @blog.finalized_articles.limit(10).each do |article|
       xml.item do
         xml.title article.title
-        xml.description article.body
+        xml.description article.formatted_body
         xml.pubDate article.created_at.to_s(:rfc822)
         xml.link article_url(article)
         xml.guid article_url(article)
