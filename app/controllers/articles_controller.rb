@@ -3,6 +3,7 @@ require 'rexml/document'
 class ArticlesController < ApplicationController
   include ActionView::Helpers::SanitizeHelper
   before_filter :require_login
+  skip_before_filter :require_login, only: [:show]
   
   # GET /articles
   # GET /articles.json
