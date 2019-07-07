@@ -11,11 +11,12 @@
 <% @articles.each do |article| %>
   <tr>
     <td>
-		<%= link_to article.title, edit_article_path(article) %>
-		<div class="article-blogs">
-			<%= article.blogs.join(', ') %>
-		</div>
-	</td>
+  		<%= link_to article.title, edit_article_path(article) %>
+  		<div class="article-blogs">
+  			<%= article.blogs.join(', ') %>
+  		</div>
+  	</td>
+    <td><%= article.created_at %></td>
     <td><%= article.is_draft %></td>
     <td><%= link_to 'Show', article %></td>
     <td><%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %></td>
