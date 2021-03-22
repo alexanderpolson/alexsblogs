@@ -1,8 +1,8 @@
 class AuthorsController < ApplicationController
-  
+
   before_filter :require_login
   skip_before_filter :require_login, only: [:show]
-  
+
   # GET /authors
   # GET /authors.json
   def index
@@ -10,7 +10,6 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @authors }
     end
   end
 
@@ -21,7 +20,6 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @author }
     end
   end
 
@@ -32,7 +30,6 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @author }
     end
   end
 
@@ -49,10 +46,8 @@ class AuthorsController < ApplicationController
     respond_to do |format|
       if @author.save
         format.html { redirect_to @author, notice: 'author was successfully created.' }
-        format.json { render json: @author, status: :created, location: @author }
       else
         format.html { render action: "new" }
-        format.json { render json: @author.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -71,10 +66,8 @@ class AuthorsController < ApplicationController
     respond_to do |format|
       if @author.update_attributes(params[:author])
         format.html { redirect_to @author, notice: 'author was successfully updated.' }
-        format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @author.errors, status: :unprocessable_entity }
       end
     end
   end
